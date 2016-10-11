@@ -49,4 +49,4 @@ dependencies {
 	}
  ```
 ### Effect
-![stan](http://oanvj2lsv.bkt.clouddn.com/image/git/share/sharegit.png)
+![stan](http://oanvj2lsv.bkt.clouddn.com/image/gif/share/autoAdaptBar.gif)
