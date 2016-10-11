@@ -33,6 +33,12 @@ used as tabBar,you just need provide a title list.
         titleBar.setShowGapView(false);
         titleBar.initTabs(title,"no data");
         titleBar.setScrollDirection(AutoAdaptTabBar.SCROLL_DIRECTION_L);
+	  titleBar.setTabClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "current id: "+(int)v.getTag(), Toast.LENGTH_SHORT).show();
+            }
+        });
 ```
 ### Add dependency
 
@@ -49,8 +55,8 @@ allprojects {
 
 ```
 dependencies {
-	        compile 'com.github.stanhe:AndroidLibrary_AutoAdaptTabBar:1.0'
+	         compile 'com.github.stanhe:AutoAdaptTabBar:1.0.0'
 	}
  ```
 ### Effect
-![stan](http://oanvj2lsv.bkt.clouddn.com/image/git/sharesharegit.png)
+![stan](http://oanvj2lsv.bkt.clouddn.com/image/git/share/sharegit.png)
