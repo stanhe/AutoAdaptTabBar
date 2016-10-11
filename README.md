@@ -1,4 +1,4 @@
-# AndroidLibrary_AutoAdaptTabBar
+## AutoAdaptTabBar
 
 ### AutoAdaptTabBar
 
