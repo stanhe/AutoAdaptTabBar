@@ -1,12 +1,23 @@
 # AndroidLibrary_AutoAdaptTabBar
 
 ### AutoAdaptTabBar
+
 For auto adapt tabBar
 
-### code
+### use
+
 used as tabBar,you just need provide a title list.
+#### xml
 ```
-   AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
+<com.stan.adefault.adaptertitlebar.AutoAdaptTabBar
+        android:id="@+id/titleBar"
+        android:background="@android:color/holo_green_dark"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+```	
+#### code
+```
+   	AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
         List<String> title = new ArrayList<String >(){{add("tab0");add("news1");add("hello2");add("kety");add("god");add("killing");}};
         AutoAdaptTabBar.Style style = new AutoAdaptTabBar.Style();
 
@@ -23,9 +34,9 @@ used as tabBar,you just need provide a title list.
         titleBar.initTabs(title,"no data");
         titleBar.setScrollDirection(AutoAdaptTabBar.SCROLL_DIRECTION_L);
 ```
-### gradle complie
-1. Add it in your root build.gradle at the end of repositories:
+### Add dependency
 
+1. Add it in your root build.gradle at the end of repositories:
 ```
 allprojects {
 		repositories {
