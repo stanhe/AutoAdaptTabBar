@@ -3,8 +3,6 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.stan.adefault.d1010.MainActivity">
