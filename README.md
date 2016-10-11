@@ -1,7 +1,5 @@
 ## AutoAdaptTabBar
 
-### AutoAdaptTabBar
-
 For auto adapt tabBar with deffrent tab size.
 
 ### use
