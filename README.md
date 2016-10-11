@@ -23,5 +23,3 @@ used as tabBar,you just need provide a title list.
         titleBar.initTabs(title,"no data");
         titleBar.setScrollDirection(AutoAdaptTabBar.SCROLL_DIRECTION_L);
 ```
-
-### gradle compile
