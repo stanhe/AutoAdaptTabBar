@@ -6,7 +6,7 @@ For auto adapt tabBar
 ### code
 used as tabBar,you just need provide a title list.
 ```
- final AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
+   AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
         List<String> title = new ArrayList<String >(){{add("tab0");add("news1");add("hello2");add("kety");add("god");add("killing");}};
         AutoAdaptTabBar.Style style = new AutoAdaptTabBar.Style();
 
@@ -23,3 +23,21 @@ used as tabBar,you just need provide a title list.
         titleBar.initTabs(title,"no data");
         titleBar.setScrollDirection(AutoAdaptTabBar.SCROLL_DIRECTION_L);
 ```
+### gradle complie
+1. Add it in your root build.gradle at the end of repositories:
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+```
+2. Add the dependency
+
+```
+dependencies {
+	        compile 'com.github.stanhe:AndroidLibrary_AutoAdaptTabBar:1.0'
+	}
+ ```
