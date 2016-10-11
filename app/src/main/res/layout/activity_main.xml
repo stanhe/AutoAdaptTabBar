@@ -18,5 +18,5 @@
         android:id="@+id/titleBar"
         android:background="@android:color/holo_green_dark"
         android:layout_width="match_parent"
-        android:layout_height="60dp"></com.stan.adefault.adaptertitlebar.AutoAdaptTabBar>
+        android:layout_height="60dp"/>
 </LinearLayout>
