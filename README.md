@@ -17,7 +17,7 @@ used as tabBar,you just need provide a title list.
 ```	
 #### code
 ```
-   	AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
+        AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
         List<String> title = new ArrayList<String >(){{add("tab0");add("news1");add("hello2");add("kety");add("god");add("killing");}};
         AutoAdaptTabBar.Style style = new AutoAdaptTabBar.Style();
         style.set......
