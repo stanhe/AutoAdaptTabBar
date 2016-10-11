@@ -52,3 +52,5 @@ dependencies {
 	        compile 'com.github.stanhe:AndroidLibrary_AutoAdaptTabBar:1.0'
 	}
  ```
+### Effect
+![stan](http://oanvj2lsv.bkt.clouddn.com/image/git/sharesharegit.png)
