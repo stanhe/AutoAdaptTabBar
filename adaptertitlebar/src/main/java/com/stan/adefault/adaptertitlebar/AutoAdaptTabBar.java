@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -58,6 +59,10 @@ public class AutoAdaptTabBar extends FrameLayout {
      */
     private int gapColor;
     /**
+     * gap width
+     */
+    private int gapViewWidth;
+    /**
      * tab textSize
      */
     private int textSize=DEFAULT;
@@ -65,10 +70,6 @@ public class AutoAdaptTabBar extends FrameLayout {
      * showGapView
      */
     private boolean showGapView=true;
-    /**
-     * gapView
-     */
-    private View gapView;
     /**
      * scroll direction
      */
@@ -81,7 +82,10 @@ public class AutoAdaptTabBar extends FrameLayout {
      * style
      */
     private Style style;
-
+    /**
+     * screenWidth
+     */
+    private int screenWidth;
     /**
      * default value
      */
@@ -94,6 +98,7 @@ public class AutoAdaptTabBar extends FrameLayout {
     public static final int SCROLL_DIRECTION_R = 1;
     public static final int SCROLL_DIRECTION_L = 0;
     public static final int SCROLL_DIRECTION_N = -1;
+
 
     public AutoAdaptTabBar(Context context) {
         super(context);
@@ -120,6 +125,7 @@ public class AutoAdaptTabBar extends FrameLayout {
         textColor = mContext.getResources().getColor(android.R.color.darker_gray);
         gapColor = textColor;
         clickColor = mContext.getResources().getColor(R.color.click_default);
+        screenWidth = DisplayUtils.getScreenWidth(mContext);
     }
 
     /**
@@ -241,7 +247,6 @@ public class AutoAdaptTabBar extends FrameLayout {
             showItems = 1;
         this.setVisibility(View.VISIBLE);
         int childSize = childList.size();
-        int width = DisplayUtils.getScreenWidth(mContext);
         LinearLayout container = new LinearLayout(mContext);
         container.setOrientation(LinearLayout.HORIZONTAL);
         container.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -253,9 +258,9 @@ public class AutoAdaptTabBar extends FrameLayout {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
             LinearLayout.LayoutParams params;
             if (childSize==1){
-                params = new LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT);
+                params = new LinearLayout.LayoutParams(screenWidth, ViewGroup.LayoutParams.MATCH_PARENT);
             }else {
-                params = new LinearLayout.LayoutParams(width/showItems, ViewGroup.LayoutParams.MATCH_PARENT);
+                params = new LinearLayout.LayoutParams(screenWidth/showItems, ViewGroup.LayoutParams.MATCH_PARENT);
             }
             textView.setLayoutParams(params);
             textView.setSingleLine(true);
@@ -268,13 +273,21 @@ public class AutoAdaptTabBar extends FrameLayout {
             textView.setTag(i);
             textView.setOnClickListener(tabClickListener);
             container.addView(textView);
-            if (i<childSize-1){
-                TextView line = new TextView(mContext);
+            if (i<childSize-1 && showGapView){
+                final TextView line = new TextView(mContext);
                 line.setText("|");
                 line.setTextColor(gapColor);
                 container.addView(line);
-                if (!showGapView)line.setVisibility(GONE);
-                gapView = line;
+                if (i==0 && childSize>1) {
+                    line.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            gapViewWidth = line.getWidth();
+                        }
+                    });
+                }
+            }else if (!showGapView){
+                gapViewWidth = 0;
             }
         }
         tabContainer.addView(container);
@@ -318,7 +331,7 @@ public class AutoAdaptTabBar extends FrameLayout {
                 super.handleMessage(msg);
                     switch (msg.what){
                             case OK:
-                                int halfSize = (DisplayUtils.getScreenWidth(mContext) / showItems + gapView.getWidth());
+                                int halfSize = (screenWidth / showItems + gapViewWidth);
                                 int scrolledX = Math.abs(scrollX);
                                 int n = scrollX / halfSize;
                                 if (Math.abs(scrolledX - n * halfSize) > (halfSize / 2))
@@ -361,11 +374,11 @@ public class AutoAdaptTabBar extends FrameLayout {
         }
         if (mChildList!=null && mChildList.size()>2 && scrollDirection!=SCROLL_DIRECTION_N) {
             if (position < mChildList.size()-1){
-                tabContainer.smoothScrollTo((DisplayUtils.getScreenWidth(mContext)/showItems+gapView.getWidth())*(position-scrollDirection), 0);
+                tabContainer.smoothScrollTo((screenWidth/showItems+gapViewWidth)*(position-scrollDirection), 0);
             }else if (position == mChildList.size()-1){
                 if (showItems==1)
                     position+=1;
-                tabContainer.smoothScrollTo((DisplayUtils.getScreenWidth(mContext)/showItems+gapView.getWidth())*(position-1), 0);
+                tabContainer.smoothScrollTo((screenWidth/showItems+gapViewWidth)*(position-1), 0);
             }
         }
     }

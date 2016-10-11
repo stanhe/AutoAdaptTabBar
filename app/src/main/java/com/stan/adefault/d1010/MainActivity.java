@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
 //        style.setClickColor(getResources().getColor(android.R.color.holo_green_light));
 //        style.setGapColor(getResources().getColor(android.R.color.holo_blue_bright));
 
-        style.setShowItems(4);
+        style.setShowItems(3);
         titleBar.setClickColor(getResources().getColor(android.R.color.holo_orange_light));
         titleBar.setStyle(style);
-        titleBar.setShowGapView(false);
+        titleBar.setShowGapView(true);
         titleBar.initTabs(title,"no data");
         titleBar.setScrollDirection(AutoAdaptTabBar.SCROLL_DIRECTION_L);
 
