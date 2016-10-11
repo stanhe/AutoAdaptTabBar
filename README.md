@@ -49,7 +49,7 @@ allprojects {
 
 ```
 dependencies {
-	        compile 'com.github.stanhe:AndroidLibrary_AutoAdaptTabBar:1.0'
+	         compile 'com.github.stanhe:AutoAdaptTabBar:1.0.0'
 	}
  ```
 ### Effect
