@@ -55,6 +55,10 @@ public class AutoAdaptTabBar extends FrameLayout {
      */
     private int textColor;
     /**
+     * tab text color
+     */
+    private int textBg;
+    /**
      * gap view color
      */
     private int gapColor;
@@ -136,6 +140,7 @@ public class AutoAdaptTabBar extends FrameLayout {
         addView(hsv);
 
         textColor = mContext.getResources().getColor(android.R.color.darker_gray);
+        textBg = mContext.getResources().getColor(android.R.color.transparent);
         gapColor = textColor;
         clickColor = mContext.getResources().getColor(R.color.click_default);
         screenWidth = DisplayUtils.getScreenWidth(mContext);
@@ -278,6 +283,7 @@ public class AutoAdaptTabBar extends FrameLayout {
             TextView textView = new TextView(mContext);
             textView.setTextColor(textColor);
             textView.setText(childList.get(i));
+            textView.setBackgroundColor(textBg);
             if (textSize!=DEFAULT)
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize);
             LinearLayout.LayoutParams params;
@@ -301,6 +307,7 @@ public class AutoAdaptTabBar extends FrameLayout {
                 final TextView line = new TextView(mContext);
                 line.setText("|");
                 line.setTextColor(gapColor);
+                line.setBackgroundColor(textBg);
                 container.addView(line);
                 if (i==0 && childSize>1) {
                     line.post(new Runnable() {
