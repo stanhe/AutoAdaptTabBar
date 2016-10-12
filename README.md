@@ -45,7 +45,7 @@ allprojects {
 
 ```
 dependencies {
-	         compile 'com.github.stanhe:AutoAdaptTabBar:1.0.2'
+	         compile 'com.github.stanhe:AutoAdaptTabBar:1.0.4'
 	}
  ```
 ### Effect
