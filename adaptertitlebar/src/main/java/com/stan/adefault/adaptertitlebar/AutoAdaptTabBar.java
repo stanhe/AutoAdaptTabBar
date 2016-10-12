@@ -110,6 +110,19 @@ public class AutoAdaptTabBar extends FrameLayout {
         mContext = context;
         initView();
     }
+
+    public AutoAdaptTabBar(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        mContext = context;
+        initView();
+    }
+
+    public AutoAdaptTabBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        mContext = context;
+        initView();
+    }
+
     /**
      * add HorizontalScrollView
      */
