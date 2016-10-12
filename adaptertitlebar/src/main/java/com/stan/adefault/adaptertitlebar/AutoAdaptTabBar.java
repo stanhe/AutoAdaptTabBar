@@ -1,11 +1,11 @@
 package com.stan.adefault.adaptertitlebar;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -145,7 +145,8 @@ public class AutoAdaptTabBar extends FrameLayout {
      * define the tab style
      */
     public static class Style{
-        private int containerBg;
+        private int containerBgColor;
+        private Drawable containerBg;
         private int textColor;
         private int clickColor;
         private int textSize;
@@ -158,11 +159,11 @@ public class AutoAdaptTabBar extends FrameLayout {
         }
 
         public int getContainerBg() {
-            return containerBg;
+            return containerBgColor;
         }
 
         public void setContainerBg(int containerBg) {
-            this.containerBg = containerBg;
+            this.containerBgColor = containerBg;
         }
 
         public int getTextColor() {
@@ -219,6 +220,14 @@ public class AutoAdaptTabBar extends FrameLayout {
         public int getShowItems() {
             return showItems;
         }
+
+        public void setContainerBg(Drawable containerBg) {
+            this.containerBg = containerBg;
+        }
+
+        public int getContainerBgColor() {
+            return containerBgColor;
+        }
     }
 
     /**
@@ -226,7 +235,9 @@ public class AutoAdaptTabBar extends FrameLayout {
      */
     private void handleStyle() {
         if (this.style==null)return;
-        if (style.containerBg!=0)
+        if (style.containerBgColor!=0)
+            setContainerBgColor(style.containerBgColor);
+        if (style.containerBg!=null)
             setContainerBg(style.containerBg);
         if (style.textColor!=0)
             setTextColor(style.textColor);
@@ -400,10 +411,12 @@ public class AutoAdaptTabBar extends FrameLayout {
         this.clickListener = clickListener;
     }
 
-    public void setContainerBg(int containerBg){
-        tabContainer.setBackgroundColor(containerBg);
+    public void setContainerBgColor(int bgColor){
+        tabContainer.setBackgroundColor(bgColor);
     }
-
+    public void setContainerBg(Drawable d){
+        tabContainer.setBackground(d);
+    }
     public void setTextColor(int textColor) {
         this.textColor = textColor;
     }
