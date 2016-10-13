@@ -53,5 +53,5 @@ dependencies {
 
 ### Update log
 
-###### v 1.0.8:
+##### v 1.0.8:
 > set Over Scroll Mode never,to reduce detection time when click with fling .
