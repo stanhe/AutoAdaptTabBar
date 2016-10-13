@@ -133,6 +133,7 @@ public class AutoAdaptTabBar extends FrameLayout {
     private void initView() {
         HorizontalScrollView hsv = new HorizontalScrollView(mContext);
         hsv.setScrollBarSize(0);
+        hsv.setOverScrollMode(OVER_SCROLL_NEVER);
         hsv.setBackgroundColor(mContext.getResources().getColor(android.R.color.white));
         hsv.setOnTouchListener(scrollTouchListener);
         hsv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -385,7 +386,7 @@ public class AutoAdaptTabBar extends FrameLayout {
                 }
 
             }
-        },100,100);
+        },50,100);
 
     }
 
@@ -397,10 +398,10 @@ public class AutoAdaptTabBar extends FrameLayout {
     public void setCurrentTab(int position,boolean chooseItem){
         if (position<0 || position>mChildList.size())
             return;
-        TextView currentTab = (TextView) tabContainer.findViewWithTag(position);
         if (chooseItem) {
+            TextView currentTab = (TextView) tabContainer.findViewWithTag(position);
             preTab.setTextColor(textColor);
-            preTab = (currentTab);
+            preTab = currentTab;
             preTab.setTextColor(clickColor);
         }
         if (mChildList!=null && mChildList.size()>2 && scrollDirection!=SCROLL_DIRECTION_N) {
