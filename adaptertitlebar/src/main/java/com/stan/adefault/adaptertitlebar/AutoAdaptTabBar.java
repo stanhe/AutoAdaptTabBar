@@ -389,13 +389,25 @@ public class AutoAdaptTabBar extends FrameLayout {
         },50,100);
 
     }
-
     /**
      *
      * @param position tab position
      * @param chooseItem is selected
      */
-    public void setCurrentTab(int position,boolean chooseItem){
+    public void setCurrentTab(final int position, final boolean chooseItem, int delay){
+        this.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setCurrentTab(position,chooseItem);
+            }
+        },delay);
+    }
+    /**
+     *
+     * @param position tab position
+     * @param chooseItem is selected
+     */
+    private void setCurrentTab(int position,boolean chooseItem){
         if (position<0 || position>mChildList.size())
             return;
         if (chooseItem) {

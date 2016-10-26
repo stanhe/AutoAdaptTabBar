@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
         titleBar.setStyle(style);
         titleBar.setShowGapView(true);
         titleBar.initTabs(title,"no data");
-        titleBar.setScrollDirection(AutoAdaptTabBar.SCROLL_DIRECTION_L);
+        titleBar.setCurrentTab(4,true,2000);
 
         findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                titleBar.setCurrentTab(3,true);
+                titleBar.setCurrentTab(3,true,0);
             }
         });
         titleBar.setTabClickListener(new View.OnClickListener() {
