@@ -2,10 +2,13 @@
 
 For auto adapt tabBar with deffrent tab size.
 
-### How to use
+### Effect
+![stan](http://oanvj2lsv.bkt.clouddn.com/image/gif/share/autoAdaptBar.gif)
+
+### Usage
 
 used as tabBar,you just need provide a title list.
-#### xml
+#### Xml
 ```xml
 <com.stan.adefault.adaptertitlebar.AutoAdaptTabBar
         android:id="@+id/titleBar"
@@ -13,7 +16,7 @@ used as tabBar,you just need provide a title list.
         android:layout_width="match_parent"
         android:layout_height="60dp"/>
 ```	
-#### code
+#### Java
 ```java
         AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
         List<String> title = new ArrayList<String >(){{add("tab0");add("news1");add("hello2");add("kety");add("god");add("killing");}};
@@ -48,9 +51,6 @@ dependencies {
 	         compile 'com.github.stanhe:AutoAdaptTabBar:1.1.0'
 	}
  ```
-### Effect
-![stan](http://oanvj2lsv.bkt.clouddn.com/image/gif/share/autoAdaptBar.gif)
-
 ### Update log
 
 v 1.1.0:
