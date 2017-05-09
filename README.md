@@ -2,11 +2,11 @@
 
 For auto adapt tabBar with deffrent tab size.
 
-### use
+### How to use
 
 used as tabBar,you just need provide a title list.
 #### xml
-```
+```xml
 <com.stan.adefault.adaptertitlebar.AutoAdaptTabBar
         android:id="@+id/titleBar"
         android:background="@android:color/holo_green_dark"
@@ -14,7 +14,7 @@ used as tabBar,you just need provide a title list.
         android:layout_height="60dp"/>
 ```	
 #### code
-```
+```java
         AutoAdaptTabBar titleBar = (AutoAdaptTabBar) findViewById(R.id.titleBar);
         List<String> title = new ArrayList<String >(){{add("tab0");add("news1");add("hello2");add("kety");add("god");add("killing");}};
         AutoAdaptTabBar.Style style = new AutoAdaptTabBar.Style();
@@ -33,7 +33,7 @@ used as tabBar,you just need provide a title list.
 ### Add dependency
 
 1. Add it in your root build.gradle at the end of repositories:
-```
+```java
 allprojects {
 		repositories {
 			...
@@ -43,7 +43,7 @@ allprojects {
 ```
 2. Add the dependency
 
-```
+```java
 dependencies {
 	         compile 'com.github.stanhe:AutoAdaptTabBar:1.1.0'
 	}
@@ -53,8 +53,8 @@ dependencies {
 
 ### Update log
 
-##### v 1.1.0:
-> fix setItemClick no scroll when init view.
+v 1.1.0:
+Fix setItemClick no scroll when init view.
 
-##### v 1.0.8:
-> set Over Scroll Mode never,to reduce detection time when click with fling .
+v 1.0.8:
+Cancel Over Scroll Mode to reduce detection time when fling .
