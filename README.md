@@ -54,7 +54,9 @@ dependencies {
 ### Update log
 
 v 1.1.0:
+
 Fix setItemClick no scroll when init view.
 
 v 1.0.8:
+
 Cancel Over Scroll Mode to reduce detection time when fling .
